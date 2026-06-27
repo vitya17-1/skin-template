@@ -1,0 +1,8 @@
+# Dependencies (regenerable via `npm install`)
+node_modules/
+
+# Local tooling / OS junk
+.claude/
+scratchpad/
+.DS_Store
+Thumbs.db
