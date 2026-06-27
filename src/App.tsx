@@ -1,13 +1,16 @@
 import { useMemo, useRef, useState } from 'react';
 import { BeltDownload } from './components/BeltDownload';
 import { BeltForm } from './components/BeltForm';
+import { BeltProductMockup } from './components/BeltProductMockup';
 import { BeltPreview } from './components/BeltPreview';
 import { CoverDownload } from './components/CoverDownload';
 import { CoverForm } from './components/CoverForm';
+import { CoverProductMockup } from './components/CoverProductMockup';
 import { CoverPreview } from './components/CoverPreview';
 import { DownloadPanel } from './components/DownloadPanel';
 import { Hero } from './components/Hero';
 import { PatternForm } from './components/PatternForm';
+import { ModulePreviewTabs } from './components/ModulePreviewTabs';
 import { PreviewTabs } from './components/PreviewTabs';
 import { ProductCategorySelector } from './components/ProductCategorySelector';
 import { StepProgress } from './components/StepProgress';
@@ -46,7 +49,7 @@ export default function App() {
   const { params: coverParams, updateParam: updateCoverParam, applyPreset: applyCoverPreset } = useCoverStore();
   const coverGeometry = useMemo(() => createCoverGeometry(coverParams), [coverParams]);
 
-  const isWallet = selectedCategory === 'cardholder' || selectedCategory === 'wallet';
+  const isWallet = selectedCategory === 'cardholder';
   const isBelt = selectedCategory === 'belt';
   const isCover = selectedCategory === 'cover';
 
@@ -183,7 +186,7 @@ export default function App() {
                 <section className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line shadow-soft sm:grid-cols-3">
                   {[
                     ['Производственная геометрия', `${mm(geometry.pieces[0].width)} × ${mm(geometry.pieces[0].height)}`],
-                    ['Изделие', `${selectedCategory === 'cardholder' ? 'Кардхолдер' : 'Кошелёк'} · ${params.pocketCount} карм.`],
+                    ['Изделие', `Складной кардхолдер · ${params.pocketCount} карм.`],
                     ['Документация', `${layout.format} · ${params.printScale}% · 10 см`],
                   ].map(([label, value]) => (
                     <div key={label} className="bg-surface px-5 py-4">
@@ -196,11 +199,21 @@ export default function App() {
             )}
 
             {isBelt && (
-              <BeltPreview geometry={beltGeometry} strapWidthMm={beltParams.strapWidthMm} />
+              <ModulePreviewTabs
+                productLabel="Ваш ремень"
+                activeView={activePreview}
+                product={<BeltProductMockup geometry={beltGeometry} />}
+                pattern={<BeltPreview geometry={beltGeometry} strapWidthMm={beltParams.strapWidthMm} />}
+              />
             )}
 
             {isCover && (
-              <CoverPreview geometry={coverGeometry} params={coverParams} />
+              <ModulePreviewTabs
+                productLabel="Ваша обложка"
+                activeView={activePreview}
+                product={<CoverProductMockup geometry={coverGeometry} params={coverParams} />}
+                pattern={<CoverPreview geometry={coverGeometry} params={coverParams} />}
+              />
             )}
           </div>
         </div>

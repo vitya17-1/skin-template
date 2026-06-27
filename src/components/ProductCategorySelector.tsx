@@ -12,7 +12,7 @@ type Category = {
 const categories: Category[] = [
   {
     id: 'cardholder',
-    name: 'Кардхолдер',
+    name: 'Складной кардхолдер',
     status: 'prototype',
     selectable: true,
     description: 'Параметрический модуль работает; требуется физическая проверка мастером.',
@@ -21,9 +21,9 @@ const categories: Category[] = [
   {
     id: 'wallet',
     name: 'Кошелек',
-    status: 'prototype',
-    selectable: true,
-    description: 'Текущий движок доступен как прототип, без статуса production-ready.',
+    status: 'research',
+    selectable: false,
+    description: 'Отдельный модуль с отделением для банкнот и собственной сборочной моделью.',
     icon: Wallet,
   },
   {
@@ -78,7 +78,7 @@ export function ProductCategorySelector({ selectedId, onSelect }: ProductCategor
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-leather">Шаг 1 · Изделие</p>
         <h2 className="mt-2 font-display text-2xl font-semibold tracking-snugger text-ink">Что хотите создать?</h2>
         <p className="mt-2 text-sm leading-6 text-ink/56">
-          Четыре модуля доступны как инженерные прототипы. Сумка и обувь — в активной разработке.
+          Кардхолдер, ремень и обложка доступны как инженерные прототипы. Кошелёк и обувь получают отдельные движки.
         </p>
       </div>
 

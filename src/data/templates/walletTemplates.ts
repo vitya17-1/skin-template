@@ -16,8 +16,8 @@ export const simpleWalletDefaults: WalletPatternParams = {
 export const walletTemplates: WalletTemplate[] = [
   {
     id: 'minimal-wallet',
-    name: 'Первый кошелек',
-    description: 'Самый простой вариант: один карман, мало деталей, легко проверить PDF.',
+    name: 'Мини-кардхолдер',
+    description: 'Компактная учебная конфигурация с минимальным количеством деталей.',
     bestFor: 'лучше для старта',
     params: {
       ...simpleWalletDefaults,
@@ -32,8 +32,8 @@ export const walletTemplates: WalletTemplate[] = [
   },
   {
     id: 'classic-bifold',
-    name: 'Классический складной',
-    description: 'Понятный повседневный кошелек с двумя карманами.',
+    name: 'Складной кардхолдер',
+    description: 'Базовая проверяемая конструкция: основа и два внутренних кармана.',
     bestFor: 'рекомендуем',
     params: {
       ...simpleWalletDefaults,
@@ -42,8 +42,8 @@ export const walletTemplates: WalletTemplate[] = [
   },
   {
     id: 'card-wallet',
-    name: 'Для карт',
-    description: 'Компактный формат, если нужно больше карманов.',
+    name: 'Кардхолдер на 4 карты',
+    description: 'Многослойный вариант, который пока требует отдельной физической приёмки.',
     bestFor: '4-6 карт',
     params: {
       ...simpleWalletDefaults,

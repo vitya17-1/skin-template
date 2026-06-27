@@ -18,13 +18,13 @@ export function TemplateSelector({ selectedId, onSelect }: TemplateSelectorProps
     <section className="rounded-2xl border border-line bg-surface p-6 shadow-soft">
       <div className="mb-4">
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-leather">Шаг 2 · Модель</p>
-        <h2 className="mt-2 font-display text-2xl font-semibold tracking-snugger text-ink">Выберите модель</h2>
+        <h2 className="mt-2 font-display text-2xl font-semibold tracking-snugger text-ink">Выберите модель кардхолдера</h2>
         <p className="mt-2 text-sm leading-6 text-ink/56">
           Модель задаёт конструкцию изделия. Размеры и параметры можно поменять дальше.
         </p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-        {walletTemplates.map((template) => {
+        {walletTemplates.filter((template) => template.id !== 'long-wallet').map((template) => {
           const selected = template.id === selectedId;
           const item = meta[template.id];
           return (

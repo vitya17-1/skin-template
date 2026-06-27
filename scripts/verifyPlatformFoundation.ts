@@ -4,7 +4,7 @@ import { createBeltPrototypeGeometry } from '../src/lib/patterns/belt/geometry';
 import { assessShoeReadiness } from '../src/lib/patterns/shoe/readiness';
 
 const ids = productModuleRegistry.map((module) => module.id);
-for (const required of ['cardholder', 'belt', 'shoe']) {
+for (const required of ['cardholder', 'belt', 'cover', 'shoe']) {
   if (!ids.includes(required as (typeof ids)[number])) {
     throw new Error(`Missing product module descriptor: ${required}`);
   }

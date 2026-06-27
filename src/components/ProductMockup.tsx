@@ -11,7 +11,7 @@ export function ProductMockup({ params }: ProductMockupProps) {
     { icon: Maximize2, label: 'Готовый размер', value: `${params.widthMm} × ${params.heightMm} мм` },
     { icon: Layers, label: 'Карманы', value: `${params.pocketCount} шт.` },
     { icon: Scan, label: 'Скругление', value: `${params.cornerRadiusMm} мм` },
-    { icon: CheckCircle2, label: 'Статус', value: 'Готово к выпуску' },
+    { icon: CheckCircle2, label: 'Статус', value: 'Требуется прототип' },
   ];
 
   return (

@@ -1,4 +1,4 @@
-export type ProductModuleId = 'cardholder' | 'belt' | 'shoe';
+export type ProductModuleId = 'cardholder' | 'belt' | 'cover' | 'shoe';
 
 export type ProductionReadiness =
   | 'research'
@@ -18,6 +18,7 @@ export type ModuleCapability =
   | 'last-3d-input'
   | 'surface-flattening'
   | 'assembly-validation'
+  | 'product-3d'
   | 'layout'
   | 'pdf'
   | 'svg'
